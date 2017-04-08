@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 import { UsersPage } from '../users/users';
 import { ShopPage } from '../shop/shop';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -9,16 +9,16 @@ import { ShopPage } from '../shop/shop';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  usrPage = UsersPage;
+  shpPage = ShopPage;
+
+  constructor (private navCtrl: NavController) {
 
   }
 
   onGoToUsers() {
-  	this.navCtrl.push(UsersPage);
-  }
-
-  onGoToShop() {
-  	this.navCtrl.push(ShopPage);
+  	this.navCtrl.push(this.usrPage)
+  		.catch((error) => console.log('Access denied. Argument was ' + error));
   }
 
 }

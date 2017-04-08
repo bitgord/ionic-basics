@@ -9,7 +9,7 @@ import { BuyoutPage } from "../buyout/buyout";
 export class ShopPage {
 	constructor (private navCtrl: NavController) {}
 
-	onBuy() {
-		this.navCtrl.push(BuyoutPage);
+	onBuy(productData: {name: string, quantity: number, cost: number}) {
+		this.navCtrl.push(BuyoutPage, productData);
 	}
 }
